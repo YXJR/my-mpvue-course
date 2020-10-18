@@ -51,8 +51,8 @@
       </view>
       <view class="_div data-v-2d6938ad more-container"> 查看其他4个团购 <label class="_span data-v-2d6938ad more-arrows"></label></view>
       <view class="_div data-v-2d6938ad footer">
-        <view class="_div data-v-2d6938ad">
-          <image src="/static/images/collect.png" class="_img data-v-2d6938ad"></image> 收藏
+        <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-2d6938ad">
+          <image src="{{isCollect?'/static/images/collect-active.png':'/static/images/collect.png'}}" class="_img data-v-2d6938ad"></image> 收藏
         </view>
         <view class="_div data-v-2d6938ad">
           <image src="/static/images/remark.png" class="_img data-v-2d6938ad"></image> 写点评

@@ -2,7 +2,7 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([5],{
 
-/***/ 42:
+/***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,7 @@ var _vue = __webpack_require__(3);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _index = __webpack_require__(43);
+var _index = __webpack_require__(44);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -23,20 +23,20 @@ app.$mount();
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2d6938ad_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2d6938ad_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(50);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(44)
+  __webpack_require__(45)
 }
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 
 /* template */
@@ -79,14 +79,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 44:
+/***/ 45:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 45:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,7 +96,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Star = __webpack_require__(19);
+var _Star = __webpack_require__(20);
 
 var _Star2 = _interopRequireDefault(_Star);
 
@@ -211,7 +211,8 @@ var db = wx.cloud.database();
 exports.default = {
   data: function data() {
     return {
-      detailData: {}
+      detailData: {},
+      isCollect: false
     };
   },
 
@@ -219,18 +220,41 @@ exports.default = {
   onLoad: function onLoad(options) {
     var _this = this;
 
-    // 通过id查找详细内容
+    //1.通过id查找详细内容
     var id = options.id;
     db.collection('remark').doc(id).get().then(function (res) {
       console.log(res);
       _this.detailData = res.data;
     });
+    //2.初始化时(在已登录的状态下)先判断此条有没有被收藏
+    var openid = JSON.parse(wx.getStorageSync("idMessage")).openid;
+    var userInfo = wx.getStorageSync("userInfo");
+    if (openid && userInfo) {
+      db.collect('collect').where({
+        openid: openid,
+        id: id
+      }).get({
+        success: function success(res) {
+          if (res.data.length > 0) {
+            //已经被收藏
+            _this.isCollect = true;
+          } else {
+            //未被收藏
+            _this.isCollect = false;
+          }
+        }
+      });
+    }
+  },
+
+  methods: {
+    collect: function collect(id) {}
   }
 };
 
 /***/ }),
 
-/***/ 49:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -326,7 +350,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "now-price"
   }, [_vm._v("￥35")]), _vm._v(" "), _c('span', {
     staticClass: "original-price"
-  }, [_vm._v("￥57")])])], 1)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])])
+  }, [_vm._v("￥57")])])], 1)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('div', {
+    staticClass: "footer"
+  }, [_c('div', {
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.collect(_vm.detailData.id)
+      }
+    }
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.isCollect ? '/static/images/collect-active.png' : '/static/images/collect.png'
+    }
+  }), _vm._v(" 收藏")]), _vm._v(" "), _vm._m(5)])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -365,17 +404,11 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "more-arrows"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "footer"
-  }, [_c('div', [_c('img', {
-    attrs: {
-      "src": "/static/images/collect.png"
-    }
-  }), _vm._v(" 收藏")]), _vm._v(" "), _c('div', [_c('img', {
+  return _c('div', [_c('img', {
     attrs: {
       "src": "/static/images/remark.png"
     }
-  }), _vm._v(" 写点评")])])
+  }), _vm._v(" 写点评")])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -389,4 +422,4 @@ if (false) {
 
 /***/ })
 
-},[42]);
+},[43]);

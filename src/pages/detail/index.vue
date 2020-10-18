@@ -95,7 +95,7 @@
         查看其他4个团购 <span class="more-arrows"></span>
       </div>
       <div class="footer">
-        <div><img src="/static/images/collect.png" /> 收藏</div>
+        <div @click='collect(detailData.id)'><img :src="isCollect?'/static/images/collect-active.png':'/static/images/collect.png'" /> 收藏</div>
         <div><img src="/static/images/remark.png" /> 写点评</div>
       </div>
     </div>
@@ -108,18 +108,44 @@ import Star from '../../components/Star'
 export default {
   data () {
     return {
-      detailData: {}
+      detailData: {},
+      isCollect: false
     };
   },
   components: { Star },
   onLoad (options) {
-    // 通过id查找详细内容
+    //1.通过id查找详细内容
     let id = options.id;
     db.collection('remark').doc(id).get().then(res => {
       console.log(res);
       this.detailData = res.data;
     })
-  }
+    //2.初始化时(在已登录的状态下)先判断此条有没有被收藏
+    const openid = JSON.parse(wx.getStorageSync("idMessage")).openid
+    const userInfo = wx.getStorageSync("userInfo")
+    if (openid && userInfo) {
+      db.collect('collect').where({
+        openid: openid,
+        id: id
+      }).get({
+        success: res => {
+          if (res.data.length > 0) {
+            //已经被收藏
+            this.isCollect = true
+          } else {
+            //未被收藏
+            this.isCollect = false
+          }
+        }
+      })
+    }
+
+  },
+  methods: {
+    collect (id) {
+
+    }
+  },
 };
 </script>
 

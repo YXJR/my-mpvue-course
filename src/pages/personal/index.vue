@@ -62,6 +62,14 @@ export default {
       }
     })
   },
+  onShow () {
+    //如果已经登录,取出登录态显示,避免再一次的请求
+    const userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      this.userInfo = userInfo
+      this.isLogin = true;
+    }
+  },
   methods: {
     login () {
       // 获取用户数据
@@ -70,6 +78,10 @@ export default {
         success: res => {
           console.log(res);
           this.userInfo = res.userInfo
+          wx.setStorage({
+            key: 'userInfo',
+            data: res.userInfo
+          })
           this.isLogin = true;
         }
       })

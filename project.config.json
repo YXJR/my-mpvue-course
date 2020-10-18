@@ -1,32 +1,33 @@
 {
-    "description": "项目配置文件。",
-    "setting": {
-        "urlCheck": true,
-        "es6": false,
-        "postcss": true,
-        "minified": true,
-        "newFeature": true
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true
+  },
+  "miniprogramRoot": "dist/wx/",
+  "cloudfunctionRoot": "/static/cloudFunctions/",
+  "compileType": "miniprogram",
+  "appid": "wx00ba6288df3854e3",
+  "projectname": "my-mpvue-project",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
     },
-    "miniprogramRoot": "dist/wx/",
-    "compileType": "miniprogram",
-    "appid": "wx00ba6288df3854e3",
-    "projectname": "my-mpvue-project",
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "currentL": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": -1,
-            "list": []
-        }
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
     }
+  }
 }
