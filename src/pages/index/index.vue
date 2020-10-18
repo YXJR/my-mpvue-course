@@ -12,6 +12,7 @@
           src="/static/images/down.png"
         />
         <img
+          @click='goToPersonal'
           class="people"
           src="/static/images/people.png"
         />
@@ -178,6 +179,11 @@ export default {
     goTODetail (id) {
       wx.navigateTo({
         url: "/pages/detail/main?id=" + id
+      });
+    },
+    goToPersonal () {
+      wx.navigateTo({
+        url: "/pages/personal/main"
       });
     }
   },

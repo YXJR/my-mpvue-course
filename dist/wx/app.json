@@ -3,6 +3,7 @@
     "pages/index/main",
     "pages/city/main",
     "pages/detail/main",
+    "pages/personal/main",
     "pages/logs/main"
   ],
   "permission": {

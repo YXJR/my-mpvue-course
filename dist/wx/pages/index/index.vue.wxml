@@ -3,7 +3,7 @@
     <view class="_div data-v-65f59a68 title_content">
       <view class="_div data-v-65f59a68 area"><label class="_span data-v-65f59a68 area_name" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{address}}</label>
         <image class="_img data-v-65f59a68 downIcon" src="/static/images/down.png"></image>
-        <image class="_img data-v-65f59a68 people" src="/static/images/people.png"></image>
+        <image bindtap="handleProxy" class="_img data-v-65f59a68 people" src="/static/images/people.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
       </view>
     </view>
     <view class="_div data-v-65f59a68 menu_content">
@@ -25,7 +25,7 @@
     </view>
     <view class="_div data-v-65f59a68 line_gray"></view>
     <view class="_div data-v-65f59a68 gass_love"><label class="_span data-v-65f59a68 love_title">猜你喜欢</label>
-      <view class="_div data-v-65f59a68 love_item" wx:key="k" key="{{k}}" bindtap="handleProxy" data-eventid="{{'1_'+k}}" data-comkey="{{$k}}" wx:for="{{remarkList}}" wx:for-index="k" wx:for-item="item">
+      <view class="_div data-v-65f59a68 love_item" wx:key="k" key="{{k}}" bindtap="handleProxy" data-eventid="{{'2_'+k}}" data-comkey="{{$k}}" wx:for="{{remarkList}}" wx:for-index="k" wx:for-item="item">
         <image src="{{'cloud://xiaopower20190321-srswa.7869-xiaopower20190321-srswa-1303938263/'+item.image_path}}" class="_img data-v-65f59a68"></image>
         <view class="_ul data-v-65f59a68 list_right">
           <view class="_li data-v-65f59a68 list_title">{{item.title}}</view>

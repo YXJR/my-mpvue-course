@@ -192,6 +192,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 
 var QQMapWX = __webpack_require__(80);
@@ -288,6 +289,11 @@ exports.default = {
     goTODetail: function goTODetail(id) {
       wx.navigateTo({
         url: "/pages/detail/main?id=" + id
+      });
+    },
+    goToPersonal: function goToPersonal() {
+      wx.navigateTo({
+        url: "/pages/personal/main"
       });
     }
   },
@@ -1517,7 +1523,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('img', {
     staticClass: "people",
     attrs: {
-      "src": "/static/images/people.png"
+      "src": "/static/images/people.png",
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.goToPersonal
     }
   })])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "line_gray"
@@ -1530,7 +1540,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       key: k,
       staticClass: "love_item",
       attrs: {
-        "eventid": '1_' + k
+        "eventid": '2_' + k
       },
       on: {
         "click": function($event) {
