@@ -1,0 +1,63 @@
+<import src="/components/Star.vue.wxml" /><template name="b7fd0eb2">
+  <view class="_div data-v-2d6938ad detail_container">
+    <view class="_div data-v-2d6938ad container_up">
+      <view class="_div data-v-2d6938ad detail_content">
+        <view class="_div data-v-2d6938ad imgContainer">
+          <image wx:if="{{detailData.image_path}}" src="{{'cloud://xiaopower20190321-srswa.7869-xiaopower20190321-srswa-1303938263/'+detailData.image_path}}" class="_img data-v-2d6938ad"></image>
+        </view>
+        <view class="_ul data-v-2d6938ad">
+          <view class="_li data-v-2d6938ad store_title">{{detailData.title}}</view>
+          <view class="_li data-v-2d6938ad store_price"><template data="{{...$root[$kk+'0'], $root}}" is="4d4055c0"></template>
+            {{detailData.view}}条 ￥{{detailData.price}}/人
+          </view>
+          <view class="_li data-v-2d6938ad store_taste">口味：7.8 环境：{{detailData.environment}}服务：{{detailData.service}}</view>
+          <view class="_li data-v-2d6938ad store_type">上地 快餐简餐</view>
+        </view>
+      </view>
+      <view class="_div data-v-2d6938ad local">
+        <view class="_div data-v-2d6938ad content-show">
+          <image src="/static/images/clock.png" class="_img data-v-2d6938ad"></image> {{detailData.shopHours || ''}}
+          <image src="/static/images/wifi.png" class="_img data-v-2d6938ad"></image> WIFI <image src="/static/images/car.png" class="_img data-v-2d6938ad"></image> 停车场 <image src="/static/images/more.png" class="_img data-v-2d6938ad"></image>
+        </view>
+      </view>
+      <view class="_div data-v-2d6938ad position">
+        <image src="/static/images/position.png" class="_img data-v-2d6938ad"></image>
+        <view class="_div data-v-2d6938ad text-content"><label class="_span data-v-2d6938ad">{{detailData.place}}</label>
+          <view class="_p data-v-2d6938ad">距离步行60m，需要1分钟</view>
+        </view>
+        <view class="_div data-v-2d6938ad phone-container">
+          <image src="/static/images/phone.png" class="_img data-v-2d6938ad"></image>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-2d6938ad rule"></view>
+    <view class="_div data-v-2d6938ad rank">
+      <image class="_img data-v-2d6938ad rank-img" src="/static/images/rank.png"></image> 「上地小吃快餐热榜」 第1名 <image class="_img data-v-2d6938ad rank-more" src="/static/images/more.png"></image>
+    </view>
+    <view class="_div data-v-2d6938ad rule"></view>
+    <view class="_div data-v-2d6938ad group-buying">
+      <image class="_img data-v-2d6938ad group-buying-img" src="/static/images/group-buy.png" alt="团"></image>
+      <view class="_div data-v-2d6938ad show-list-item">
+        <image class="_img data-v-2d6938ad food-show" src="/static/images/eatPicture.png"></image>
+        <view class="_div data-v-2d6938ad text-container"><label class="_span data-v-2d6938ad food-detail"> 单人商务套餐，提供免费WIFI <label class="_span data-v-2d6938ad">已售28</label></label>
+          <view class="_p data-v-2d6938ad"><label class="_span data-v-2d6938ad now-price">￥35</label> <label class="_span data-v-2d6938ad original-price">￥57</label></view>
+        </view>
+      </view>
+      <view class="_div data-v-2d6938ad show-list-item">
+        <image class="_img data-v-2d6938ad food-show" src="/static/images/eatPicture.png"></image>
+        <view class="_div data-v-2d6938ad text-container"><label class="_span data-v-2d6938ad food-detail"> 单人商务套餐，提供免费WIFI <label class="_span data-v-2d6938ad">已售28</label></label>
+          <view class="_p data-v-2d6938ad"><label class="_span data-v-2d6938ad now-price">￥35</label> <label class="_span data-v-2d6938ad original-price">￥57</label></view>
+        </view>
+      </view>
+      <view class="_div data-v-2d6938ad more-container"> 查看其他4个团购 <label class="_span data-v-2d6938ad more-arrows"></label></view>
+      <view class="_div data-v-2d6938ad footer">
+        <view class="_div data-v-2d6938ad">
+          <image src="/static/images/collect.png" class="_img data-v-2d6938ad"></image> 收藏
+        </view>
+        <view class="_div data-v-2d6938ad">
+          <image src="/static/images/remark.png" class="_img data-v-2d6938ad"></image> 写点评
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

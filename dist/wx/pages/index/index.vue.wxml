@@ -1,0 +1,40 @@
+<import src="/components/Star.vue.wxml" /><template name="6fa96ad8">
+  <view class="_div data-v-65f59a68">
+    <view class="_div data-v-65f59a68 title_content">
+      <view class="_div data-v-65f59a68 area"><label class="_span data-v-65f59a68 area_name" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{address}}</label>
+        <image class="_img data-v-65f59a68 downIcon" src="/static/images/down.png"></image>
+        <image class="_img data-v-65f59a68 people" src="/static/images/people.png"></image>
+      </view>
+    </view>
+    <view class="_div data-v-65f59a68 menu_content">
+      <view class="_div data-v-65f59a68 menu_item">
+        <image src="/static/images/eat.png" class="_img data-v-65f59a68"></image> <label class="_span data-v-65f59a68">美食</label>
+      </view>
+      <view class="_div data-v-65f59a68 menu_item">
+        <image src="/static/images/ktv.png" class="_img data-v-65f59a68"></image> <label class="_span data-v-65f59a68">KTV</label>
+      </view>
+      <view class="_div data-v-65f59a68 menu_item">
+        <image src="/static/images/foot.png" class="_img data-v-65f59a68"></image> <label class="_span data-v-65f59a68">足疗/按摩</label>
+      </view>
+      <view class="_div data-v-65f59a68 menu_item">
+        <image src="/static/images/hotel.png" class="_img data-v-65f59a68"></image> <label class="_span data-v-65f59a68">酒店</label>
+      </view>
+      <view class="_div data-v-65f59a68 menu_item">
+        <image src="/static/images/improve.png" class="_img data-v-65f59a68"></image> <label class="_span data-v-65f59a68">丽人/美发</label>
+      </view>
+    </view>
+    <view class="_div data-v-65f59a68 line_gray"></view>
+    <view class="_div data-v-65f59a68 gass_love"><label class="_span data-v-65f59a68 love_title">猜你喜欢</label>
+      <view class="_div data-v-65f59a68 love_item" wx:key="k" key="{{k}}" bindtap="handleProxy" data-eventid="{{'1_'+k}}" data-comkey="{{$k}}" wx:for="{{remarkList}}" wx:for-index="k" wx:for-item="item">
+        <image src="{{'cloud://xiaopower20190321-srswa.7869-xiaopower20190321-srswa-1303938263/'+item.image_path}}" class="_img data-v-65f59a68"></image>
+        <view class="_ul data-v-65f59a68 list_right">
+          <view class="_li data-v-65f59a68 list_title">{{item.title}}</view>
+          <view class="_li data-v-65f59a68 list_price"><template data="{{...$root[$kk+'0_'+k], $root}}" is="4d4055c0"></template> ￥{{item.price}}/人 </view>
+          <view class="_li data-v-65f59a68 list_local">{{item.place}}</view>
+          <view class="_li data-v-65f59a68 list_tag" wx:if="{{item.labelArr[0]}}"><label wx:key="key" key="{{key}}" wx:for="{{item.labelArr}}" wx:for-index="key" wx:for-item="v" class="_span data-v-65f59a68">{{v}}</label></view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-65f59a68 loading" wx:if="{{isLoading}}">正在加载更多内容...</view>
+  </view>
+</template>

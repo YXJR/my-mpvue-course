@@ -1,0 +1,6 @@
+
+.imgContainer ._img {
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+}

@@ -1,0 +1,14 @@
+<template name="e97c2af6">
+  <view class="_div data-v-319c166a">
+    <swiper wx:if="{{imgUrls.length > 0}}" indidator-dots="imgUrls.length > 1" class="_swiper data-v-319c166a">
+      <block wx:key="index" key="{{index}}" wx:for="{{imgUrls}}" wx:for-index="index" wx:for-item="item">
+        <swiper-item class="_swiper-item data-v-319c166a">
+          <image src="{{item}}" mode="scaleToFill" class="_image data-v-319c166a"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="_ul data-v-319c166a container log-list">
+      <view wx:key="index" key="{{index}}" class="_li data-v-319c166a log-item {{[aa ? 'red' : '']}}" wx:for="{{logs}}" wx:for-index="index" wx:for-item="log"></view>
+    </view>
+  </view>
+</template>

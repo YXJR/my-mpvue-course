@@ -47,6 +47,7 @@
         class="love_item"
         v-for="(item,k) in remarkList"
         :key="k"
+        @click="goTODetail(item._id)"
       >
         <img :src="'cloud://xiaopower20190321-srswa.7869-xiaopower20190321-srswa-1303938263/'+item.image_path" />
         <ul class="list_right">
@@ -172,6 +173,11 @@ export default {
       console.log(this)
       wx.navigateTo({
         url: "/pages/city/main?address=" + this.address
+      });
+    },
+    goTODetail (id) {
+      wx.navigateTo({
+        url: "/pages/detail/main?id=" + id
       });
     }
   },

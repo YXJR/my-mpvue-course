@@ -1,0 +1,5 @@
+<template name="4d4055c0">
+  <view class="_div data-v-3dbedb0d imgContainer">
+    <image wx:key="key" key="{{key}}" src="{{'/static/images/b-'+value+'.png'}}" wx:for="{{starArr}}" wx:for-index="key" wx:for-item="value" class="_img data-v-3dbedb0d"></image>
+  </view>
+</template>

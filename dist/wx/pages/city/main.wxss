@@ -1,0 +1,83 @@
+@import "../../common/vendor.wxss";
+
+.scrollView.data-v-40b54d87 {
+  height: 1334rpx;
+}
+.location.data-v-40b54d87 {
+  display: flex;
+  width: 750rpx;
+  height: 90rpx;
+  align-items: center;
+}
+.city-title.data-v-40b54d87 {
+  font-size: 28rpx;
+  color: #aaaaaa;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-bottom: 18rpx;
+}
+.chiose-city.data-v-40b54d87 {
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.gps.data-v-40b54d87 {
+  color: #c0c0c0;
+  font-size: 20rpx;
+}
+.hot-city.data-v-40b54d87 {
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  width: 750rpx;
+  height: 464rpx;
+  border-bottom: 2rpx solid #dfdfdf;
+  border-top: 2rpx solid #dfdfdf;
+}
+.hot-city-container.data-v-40b54d87 {
+  margin-left: 28rpx;
+  margin-right: 70rpx;
+}
+.hot-city-container ._div.data-v-40b54d87 {
+  width: 200rpx;
+  height: 70rpx;
+  background: white;
+  float: left;
+  text-align: center;
+  margin-right: 8rpx;
+  margin-top: 8rpx;
+  border: 4rpx solid #dedede;
+  line-height: 70rpx;
+  font-size: 24rpx;
+}
+.letter.data-v-40b54d87 {
+  color: #aeaeae;
+  font-size: 22rpx;
+  margin-left: 30rpx;
+  margin-top: 6rpx;
+}
+.city-list.data-v-40b54d87 {
+  margin-left: 28rpx;
+  color: black;
+}
+.city-list ._li.data-v-40b54d87 {
+  height: 90rpx;
+  border-bottom: 2rpx solid #dedede;
+  line-height: 90rpx;
+  font-size: 24rpx;
+}
+.right-letter.data-v-40b54d87 {
+  width: 40rpx;
+  position: fixed;
+  right: 20rpx;
+  top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 18rpx;
+  color: #515b67;
+  z-index: 10;
+}
+.right-letter ._span.data-v-40b54d87 {
+  text-align: center;
+  margin-bottom: 4rpx;
+}

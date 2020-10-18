@@ -1,0 +1,20 @@
+<template name="3675797e">
+  <view class="_div data-v-40b54d87 city_container">
+    <view class="_div data-v-40b54d87 right-letter"><label class="_span data-v-40b54d87">热门</label> <label wx:key="k" key="{{k}}" bindtap="handleProxy" data-eventid="{{'0_'+k}}" data-comkey="{{$k}}" wx:for="{{letters}}" wx:for-index="k" wx:for-item="letter" class="_span data-v-40b54d87">{{letter}}</label></view>
+    <scroll-view class="_scroll-view data-v-40b54d87 scrollView" scroll-y scroll-into-view="{{'letter'+scrollLetter}}" enable-back-to-top>
+      <view class="_div data-v-40b54d87 location"><label class="_span data-v-40b54d87 chiose-city">{{address}}</label> <label class="_span data-v-40b54d87 gps">GPS定位</label></view>
+      <view class="_div data-v-40b54d87 hot-city">
+        <view class="_div data-v-40b54d87 city-title">热门城市</view>
+        <view class="_div data-v-40b54d87 hot-city-container">
+          <view wx:key="key" key="{{key}}" bindtap="handleProxy" data-eventid="{{'1_'+key}}" data-comkey="{{$k}}" wx:for="{{hotCities}}" wx:for-index="key" wx:for-item="value" class="_div data-v-40b54d87">{{value}}</view>
+        </view>
+        <view class="_div data-v-40b54d87 letter" wx:key="k" key="{{k}}" id="{{'letter'+v.letter}}" wx:for="{{cityData}}" wx:for-index="k" wx:for-item="v">
+          {{v.letter}}
+          <view class="_ul data-v-40b54d87 city-list" wx:key="key" key="{{key}}" wx:for="{{v.citys}}" wx:for-index="key" wx:for-item="item">
+            <view bindtap="handleProxy" data-eventid="{{'2_'+k+'-'+key}}" data-comkey="{{$k}}" class="_li data-v-40b54d87">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>
