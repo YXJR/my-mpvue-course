@@ -124,11 +124,12 @@ export default {
     const openid = JSON.parse(wx.getStorageSync("idMessage")).openid
     const userInfo = wx.getStorageSync("userInfo")
     if (openid && userInfo) {
-      db.collect('collect').where({
+      db.collection('collect').where({
         openid: openid,
         id: id
-      }).get({
+      }).get().then({
         success: res => {
+          console.log(res)
           if (res.data.length > 0) {
             //已经被收藏
             this.isCollect = true
@@ -143,6 +144,47 @@ export default {
   },
   methods: {
     collect (id) {
+      const idMessage = wx.getStorageSync("idMessage")
+      const openid = JSON.parse(idMessage).openid
+      console.log('openid:' + openid)
+      const userInfo = wx.getStorageSync("userInfo")
+      //1.只有登录后才有权限操作
+      if (openid && userInfo) {
+        //1.1点击此按钮,收藏-->未收藏 (调用云函数,删除该条记录)
+        if (this.isCollect) {
+          wx.cloud.callFunction({
+            name: 'add',
+            data: {
+              openid,
+              id
+            }
+          }).then(res => {
+            console.log('取消收藏了')
+            this.isCollect = false
+          })
+
+        } else {
+          //1.2未收藏-->收藏,
+          db.collection('collect').add({
+            data: {
+              openid,
+              id
+            }
+          }).then(res => {
+            console.log('收藏了!')
+            this.isCollect = true
+          })
+
+        }
+      } else {
+        //2.未登录,请先登录
+        wx.showToast({
+          title: "请先登录",
+          icon: "none",
+          duration: 2000,
+
+        });
+      }
 
     }
   },

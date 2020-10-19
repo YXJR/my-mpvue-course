@@ -10,8 +10,8 @@ exports.main = async(event, context) => {
    * 根据 id 获取具体的信息
    */
   result =  await db.collection('collect').where({
-    openid,
-    id:id
+    openid:event.openid,
+    id:event.id
   }).remove()
   return result
 }

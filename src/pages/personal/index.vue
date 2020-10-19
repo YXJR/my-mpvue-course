@@ -20,6 +20,7 @@
     <div
       class="collection"
       v-if="isLogin"
+      @click='goToCollect'
     >
       <span class="collection-text">收藏列表</span>
       <span class="right-arrows"></span>
@@ -85,6 +86,15 @@ export default {
           this.isLogin = true;
         }
       })
+    },
+    goToCollect () {
+      // wx.navigateTo({
+      //   url: "pages/collectList/main"
+      // });
+      wx.navigateTo({
+        url: "/pages/collectList/main"
+      });
+      console.log('go to collect')
     }
   },
 };
